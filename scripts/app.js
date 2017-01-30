@@ -101,6 +101,21 @@ isentiaGameApp.controller('MainController', function($scope, $filter, $interval)
 
 	};
 	
+	
+
+	$scope.startTimer = function(initialCountdown){
+		var startTime = new Date();
+		intervalId = $interval(function(){
+			var actualTime = new Date();
+			$scope.counter = Math.floor((actualTime - startTime) / 1000);
+				$scope.countdown = initialCountdown + $scope.counter;
+				localStorage.setItem("savedTimerValue", $scope.countdown);
+		}, 1000);
+	};
+	$scope.stopTimer = function(){
+		$interval.cancel(intervalId);
+	};
+	
 	$scope.dragStartHandler = function (e) {
 		if ($scope.isDraggable == false){
 			return false;
