@@ -64,3 +64,23 @@ body {
 	text-transform: uppercase;
 }
 
+#puzzle{
+	padding: 0;
+	border: 1px solid #000;
+	width: 401px;
+}
+
+#puzzle:after{
+	content: "";
+	display: block;
+	clear: both;
+}		
+#puzzle li{
+	float: left;
+	list-style-type: none;
+}
+
+#puzzle li:nth-child(3n+4) {
+  clear:left;
+  float:left;
+}
