@@ -84,3 +84,85 @@ body {
   clear:left;
   float:left;
 }
+@media only screen and (max-width : 767px){
+	.gm-message-area .success, .gm-main-area{
+		padding: 0 10px;
+	}
+	.gm-area {
+		padding: 0;
+	}
+	.gm-puzzle-area{
+		margin-top: 20px;
+		padding: 0;
+	}
+	.gm-action-btn{
+		font-size: 15px;
+		padding: 10px;
+	}
+	#puzzle{
+		width: 305px;
+	}
+	#puzzle li  img{
+		width: 101px;
+	}
+}
+@media only screen and (max-width : 480px) {
+	.gm-message-area .success, .gm-main-area{
+		padding: 0 10px;
+	}
+	.gm-area {
+		padding: 0;
+	}
+	.gm-puzzle-area{
+		margin-top: 20px;
+		padding: 0;
+	}
+	.gm-action-btn{
+		font-size: 15px;
+		padding: 10px;
+	}
+	#puzzle{
+		width: 305px;
+	}
+	#puzzle li  img{
+		width: 101px;
+	}
+}
+@media only screen and (max-width : 320px) {
+	.gm-message-area .success, .gm-main-area{
+		padding: 0 10px;
+	}
+	.gm-area {
+		padding: 0;
+	}
+	.gm-puzzle-area{
+		margin-top: 20px;
+		padding: 0;
+	}
+	.gm-action-btn{
+		font-size: 15px;
+		padding: 10px;
+	}
+	#puzzle{
+		width: 305px;
+	}
+	#puzzle li  img{
+		width: 101px;
+	}
+}
+@media only screen and (min-device-width : 321px) and (max-device-width : 768px){
+	.gm-message-area .success, .gm-main-area{
+		padding: 0 10px;
+	}
+	.gm-area {
+		padding: 0;
+	}
+	.gm-puzzle-area{
+		margin-top: 20px;
+		padding: 0;
+	}
+	.gm-action-btn{
+		font-size: 15px;
+		padding: 10px;
+	}
+}
