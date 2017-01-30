@@ -21,5 +21,48 @@
     <div class="container">
 		<div ui-view="content"></div>
 	</div>
+	<script id="templates/main.html" type="text/ng-template">
+		<div class="isentia-puzzle-game">
+			<div class="gm-message-area" ng-if="gameSuccess">
+				<div class="row">
+					<div class="col-md-12"> 
+						<span class="success"> Congratulations! You solved the puzzle in total of {{totalMovesCount}} moves. </span>
+					</div>
+				</div>
+			</div>
+			<div class="gm-main-area">
+				<div class="gm-title">
+					<span> Drag and drop the images on right to match the given picture.</span>
+				</div>
+				<div class="gm-area">
+					<div class="row">
+						<div class="col-sm-3 col-xs-12 gm-controls-area"> 
+							<div class="gm-image">
+								<img src="img/isentia.jpg" class="img-responsive">
+							</div>
+							<div class="gm-buttons">
+								<div> <button class="btn btn-success gm-action-btn start" ng-click="startGame()"> Start Game </button></div>
+								<div ng-if="showTimer"><button class="btn btn-primary gm-action-btn"> {{countdown | secondsToDateTime | date:'HH:mm:ss'}}</button></div>  
+								<!--<div> <button class="btn btn-warning gm-action-btn"> Reset Game </button></div>
+								<div> <button class="btn btn-primary gm-action-btn">  New Game </button></div>-->
+							</div>
+						</div>
+						<div class="col-sm-9 col-xs-12">
+							<div class="gm-puzzle-area">
+								<ul id="puzzle">
+									<li draggable="{{isDraggable}}" class="puzzle-piece" ng-repeat="i in randomImageParts" ><img ng-src="{{i.imgSrc}}" data-img-index="{{i.arrIndex}}" >
+									</li>
+								</ul>
+								<div class="gm-moves">
+									<span>total moves: {{totalMovesCount}}</span> 
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</script>
+    
   </body>
 </html>
