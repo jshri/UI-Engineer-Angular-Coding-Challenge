@@ -74,7 +74,32 @@ isentiaGameApp.controller('MainController', function($scope, $filter, $interval)
 		$scope.showTimer = true;
 		$scope.startTimer($scope.initialCountdown);
 	}
-	
+	$scope.isGameOver = function() {
+		$scope.totalMovesCount = $scope.totalMovesCount + 1;
+		localStorage.setItem("savedGameMoves", $scope.totalMovesCount);
+		
+		var cols = document.querySelectorAll('#puzzle li');
+		var puzzleArray = [];
+		for (var i = 0; i < $scope.colsLength; i++) {
+			puzzleArray.push(cols[i].children[0].getAttribute('data-img-index'));
+		};
+		
+		localStorage.setItem("savedGameState", puzzleArray);
+		
+		var originKey = $scope.puzzleKey.join();
+		var userKey = puzzleArray.join();
+
+		if (originKey === userKey) {
+			$scope.gameSuccess = true;
+			localStorage.removeItem("savedGameState");
+			localStorage.removeItem("savedGameMoves");
+			localStorage.removeItem("savedTimerValue");
+			$scope.stopTimer();
+			localStorage.setItem("savedTimerValue", 0);
+		}
+		$scope.$apply();
+
+	};
 	
 	$scope.dragStartHandler = function (e) {
 		if ($scope.isDraggable == false){
